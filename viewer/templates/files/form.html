@@ -1,0 +1,19 @@
+{% extends 'editor/editor.html' %}
+{% block cardname %}
+    Edit File: {{ file }}
+{% endblock %}
+{% block status %}
+    {{ message }}
+{% endblock %}
+
+{% block card-body %}
+
+    <form action="" method="POST" id="userform">
+        {% csrf_token %}
+<tr><th><label for="id_title">Title:</label></th><td><input type="text" name="title" class="container-fluid" value="{{ title }}" required id="id_title"></td></tr>
+<tr><th><label for="id_content">Content:</label></th><td><textarea name="content" cols="40" rows="10" class="container-fluid" value="{{ content }}" required id="id_content">{{ content }}
+</textarea></td></tr>
+       <input type="submit" class="btn btn-primary" value="Update Entry"><br><br>
+    </form> 
+
+{% endblock %}

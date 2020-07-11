@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ Name }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ Name }}</h1><br><hr>
+
+    <ul class="navbar-nav">
+        {% for entry in entries %}
+            <li class="navbar-item alert alert-info ro"><span class="oo">{{ entry }}</span><br><br><div class="btn btn-light">
+                <a href="wiki/edit/{{ entry }}">Edit Page {{ entry }}</a>
+            </div><br><br><div class="btn btn-light">
+                <a href="wiki/{{ entry }}">View Page {{ entry }}</a>
+            </div><br><br><div class="btn btn-light">
+                <a href="delete/{{ entry }}">Delete Page {{ entry }}</a>
+            </div></li>
+        {% empty %}
+            <li>No entry found</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
